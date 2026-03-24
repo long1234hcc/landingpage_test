@@ -1,0 +1,14 @@
+[project]
+name = "water-infrastructure-backend"
+version = "0.1.0"
+description = "Water Infrastructure Projects API"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "sqlalchemy>=2.0.35",
+    "python-multipart>=0.0.9",
+]
+
+[tool.uv]
+dev-dependencies = []
