@@ -101,7 +101,10 @@ function App() {
       setLoading(true);
       setError(null);
       try {
+        // DÒNG NÀY ĐANG BỊ HARDCODE:
+        // const res = await fetch(`http://localhost:8000/api/projects`);
 
+        // SỬA THÀNH ĐOẠN NÀY:
         const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
         const res = await fetch(`${API_URL}/api/projects`);
 

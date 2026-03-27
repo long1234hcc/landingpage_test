@@ -1,4 +1,5 @@
 services:
+  # 1. KHỐI DATABASE (Kéo trực tiếp bản nguyên gốc từ Docker Hub)
   db:
     image: postgres:15-alpine
     container_name: landingpage_db
@@ -10,10 +11,11 @@ services:
     ports:
       - "5432:5432" 
     volumes:
-      - pgdata:/var/lib/postgresql/data 
+      - pgdata:/var/lib/postgresql/data # Lưu dữ liệu ra ổ cứng, tắt máy không mất
 
+  # 2. KHỐI BACKEND (FastAPI)
   backend:
-    build: ./backend 
+    build: ./backend # Trỏ vào thư mục backend để nó đọc file Dockerfile
     container_name: landingpage_backend
     restart: always
     ports:

@@ -20,5 +20,4 @@ COPY . .
 EXPOSE 8000
 
 # 7. Lệnh khởi động Server khi Container chạy
-# Lưu ý: 'main:app' có nghĩa là file main.py chứa biến app = FastAPI()
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

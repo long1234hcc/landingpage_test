@@ -2,7 +2,7 @@
 # STAGE 1: MÔI TRƯỜNG BUILD (Builder)
 # Nhiệm vụ: Tải thư viện và nén code React thành các file tĩnh
 # ==========================================
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
