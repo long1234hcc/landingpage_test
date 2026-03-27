@@ -1,0 +1,40 @@
+services:
+  # 1. KHỐI DATABASE (Kéo trực tiếp bản nguyên gốc từ Docker Hub)
+  db:
+    image: postgres:15-alpine
+    container_name: landingpage_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: landingpage_db
+    ports:
+      - "5432:5432" 
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Lưu dữ liệu ra ổ cứng, tắt máy không mất
+
+  # 2. KHỐI BACKEND (FastAPI)
+  backend:
+    build: ./backend # Trỏ vào thư mục backend để nó đọc file Dockerfile
+    container_name: landingpage_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      # Bí mật mạng nội bộ: Thay chữ 'localhost' bằng tên service 'db'
+      DATABASE_URL: postgresql://admin:secretpassword@db:5432/landingpage_db
+    depends_on:
+      - db # Phải đợi thằng 'db' khởi động xong thì thằng 'backend' mới được chạy
+
+  # 3. KHỐI FRONTEND (React + Nginx)
+  frontend:
+    build: ./frontend # Trỏ vào thư mục frontend
+    container_name: landingpage_frontend
+    restart: always
+    ports:
+      - "3000:80" # Map port 3000 của máy tính vào port 80 của Nginx bên trong
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
