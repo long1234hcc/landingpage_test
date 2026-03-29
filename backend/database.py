@@ -4,10 +4,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 
-# Tải biến môi trường từ file .env (nếu chạy local không có Docker)
-load_dotenv()
+load_dotenv() 
 
-# Lấy URL từ Docker Compose hoặc file .env
+DATABASE_URL = os.getenv("DATABASE_URL")
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not SQLALCHEMY_DATABASE_URL:

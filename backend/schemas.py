@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
+from typing import Optional
 
 class ProjectBase(BaseModel):
     name: str
@@ -16,3 +17,11 @@ class ProjectResponse(ProjectBase):
 
     class Config:
         from_attributes = True
+
+
+class ContactCreate(BaseModel):
+    name: str
+    phone: str
+    email: str
+    company: Optional[str] = None
+    message: str

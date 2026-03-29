@@ -69,6 +69,18 @@ def get_project(project_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Project not found")
     return project
 
+@app.post("/api/contact", response_model=schemas.ContactCreate)
+def create_contact(contact: schemas.ContactCreate, db: Session = Depends(get_db)):
+    # Biến dữ liệu Pydantic thành SQLAlchemy Model
+    db_contact = models.Contact(**contact.model_dump()) 
+    
+    # Lưu vào Database
+    db.add(db_contact)
+    db.commit()
+    db.refresh(db_contact)
+    
+    return db_contact
+
 
 if __name__ == "__main__":
     import uvicorn
