@@ -18,7 +18,7 @@ export default function AboutSection() {
                     <div className="w-full lg:w-1/2 relative">
                         <div className="absolute inset-0 bg-corporate-blue translate-x-4 translate-y-4 rounded-2xl -z-10 opacity-20"></div>
                         <img
-                            src="https://images.pexels.com/photos/2563700/pexels-photo-2563700.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="https://images.unsplash.com/photo-1546188994-07c34f6e5e1b?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Kỹ sư HydroSys làm việc"
                             className="rounded-2xl shadow-xl w-full h-[500px] object-cover"
                         />

@@ -29,7 +29,7 @@ const industries = [
         title: "Thực phẩm & Đồ uống (F&B)",
         description: "Công nghệ màng lọc và tiệt trùng tiên tiến, đảm bảo nguồn nước đầu vào đạt chuẩn vệ sinh an toàn thực phẩm quốc tế (FDA, ISO 22000), giữ nguyên hương vị và chất lượng sản phẩm.",
         points: ["Lọc nước cấp cho dây chuyền F&B", "Hệ thống CIP (Clean-in-Place)", "Xử lý nước thải hữu cơ BOD/COD cao", "Thu hồi năng lượng sinh khối (Biogas)"],
-        image: "https://images.unsplash.com/photo-1615810145229-eeb5fcb1f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1680670095174-080835b10c98?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGYlMjZifGVufDB8fDB8fHww",
         reverse: true // Text bên Trái, Ảnh bên Phải
     }
 ];

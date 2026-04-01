@@ -10,25 +10,25 @@ export default function CertificationsPage() {
             id: 1,
             title: "Chứng nhận ISO 9001:2015",
             desc: "Hệ thống Quản lý Chất lượng đạt chuẩn quốc tế trong tư vấn, thiết kế và thi công EPC.",
-            image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            image: "https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2VydGlmaWNhdGlvbnN8ZW58MHx8MHx8fDA%3D"
         },
         {
             id: 2,
             title: "Chứng nhận ISO 14001:2015",
             desc: "Hệ thống Quản lý Môi trường, cam kết giảm thiểu tác động sinh thái trong mọi dự án.",
-            image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            image: "https://images.unsplash.com/photo-1648337564744-f919c7c2fc02?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2VydGlmaWNhdGlvbnN8ZW58MHx8MHx8fDA%3D"
         },
         {
             id: 3,
             title: "Chứng nhận ISO 45001:2018",
             desc: "Hệ thống Quản lý An toàn & Sức khỏe Nghề nghiệp, đảm bảo an toàn tuyệt đối tại công trường.",
-            image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            image: "https://plus.unsplash.com/premium_photo-1664475691319-488c3131ea17?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNlcnRpZmljYXRpb25zfGVufDB8fDB8fHww"
         },
         {
             id: 4,
             title: "Giấy phép Hoạt động Xây dựng",
             desc: "Giấy phép năng lực hoạt động xây dựng Hạng I do Bộ Xây dựng cấp phát.",
-            image: "https://images.unsplash.com/photo-1505664159854-2326182734ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            image: "https://plus.unsplash.com/premium_photo-1726729274362-7337b32ff1bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29uc3RydWN0aW9uJTIwcGVybWl0fGVufDB8fDB8fHww"
         }
     ];
 

@@ -10,14 +10,14 @@ export default function NewsPage() {
             title: "HydroSys ký kết hợp đồng EPC Nhà máy xử lý nước thải KCN Nam Tiền Phong",
             date: "15/03/2026",
             desc: "Dự án có công suất thiết kế 20.000 m3/ngày đêm, áp dụng công nghệ MBR tiên tiến nhất hiện nay...",
-            image: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            image: "https://media.istockphoto.com/id/2224111954/fr/photo/homme-signant-un-acte-lors-de-lachat-dune-maison.webp?a=1&b=1&s=612x612&w=0&k=20&c=wC39TCISIhkUt8jW4h0MS_SgYV9KthoZ0oMdm7qmcQo="
         },
         {
             id: 2,
             title: "Lễ khánh thành Trạm bơm tăng áp và bể chứa nước sạch thông minh",
             date: "02/03/2026",
             desc: "Hệ thống tích hợp hoàn toàn SCADA cho phép điều khiển tự động 100%, giảm 15% điện năng tiêu thụ...",
-            image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            image: "https://images.unsplash.com/photo-1671718589773-7a1477371748?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2F0ZXIlMjBmYWN0b3J5fGVufDB8fDB8fHww"
         },
         {
             id: 3,

@@ -20,6 +20,8 @@ import AboutPage from './pages/AboutPage'
 import NewsPage from './pages/NewsPage'
 import CertificationsPage from './pages/CertificationsPage'
 
+import ScrollToTop from './components/ScrollToTop'
+
 function App() {
   // 2 CÔNG TẮC ĐIỀU KHIỂN TÁCH BIỆT
   const [isConsultOpen, setIsConsultOpen] = useState(false);
@@ -28,6 +30,7 @@ function App() {
   return (
     <div className="font-sans min-h-screen flex flex-col bg-gray-50 text-gray-800 relative">
 
+      <ScrollToTop />
       {/* Truyền 2 hàm mở khác nhau xuống cho Header */}
       <Header
         onOpenConsultModal={() => setIsConsultOpen(true)}

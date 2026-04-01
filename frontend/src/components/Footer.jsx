@@ -16,11 +16,11 @@ export default function Footer() {
                     <div className="space-y-4 text-sm text-gray-400">
                         <div className="flex items-start gap-3">
                             <MapPin size={18} className="text-engineering-green flex-shrink-0 mt-0.5" />
-                            <p>Tòa nhà Petrovietnam, số 1-5 Lê Duẩn, Phường Bến Nghé, Quận 1, TP. HCM</p>
+                            <p>Tòa nhà AAA, số 1-5 BBB, Phường CCC, Quận 1, TP. HCM</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <Phone size={18} className="text-engineering-green flex-shrink-0" />
-                            <p>024 999 55 868</p>
+                            <p>024 xxxx</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <Mail size={18} className="text-engineering-green flex-shrink-0" />

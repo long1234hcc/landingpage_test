@@ -30,18 +30,14 @@ export default function HomePage() {
         <>
             <HeroSection />
             <TrustSignals projectCount={projectCount} />
-
-            {/* <ServicesSection /> */}
+            <ServicesSection />
 
             <AboutSection />
-
-
-
-            <Certifications />
 
             <PartnerLogos />
 
             <FeaturedProjects />
+
 
             <CTASection />
         </>
