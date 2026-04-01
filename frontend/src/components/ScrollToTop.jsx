@@ -7,7 +7,11 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         // Mỗi khi pathname thay đổi (chuyển trang), cuộn về đầu trang
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
     }, [pathname]);
 
     return null; // Component này không render ra giao diện
