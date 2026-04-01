@@ -8,10 +8,17 @@ import HomePage from './pages/HomePage'
 import PortfolioPage from './pages/PortfolioPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import ConsultationModal from './components/ConsultationModal'
-import SolutionsPage from './pages/SolutionsPage'
+// import SolutionsPage from './pages/SolutionsPage'
+
+
 import IndustriesPage from './pages/IndustriesPage'
 import NotFoundPage from './pages/NotFoundPage';
 import LoginMaintenanceModal from './components/LoginMaintenanceModal'
+import FloatingContact from './components/FloatingContact'
+
+import AboutPage from './pages/AboutPage'
+import NewsPage from './pages/NewsPage'
+import CertificationsPage from './pages/CertificationsPage'
 
 function App() {
   // 2 CÔNG TẮC ĐIỀU KHIỂN TÁCH BIỆT
@@ -32,14 +39,21 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/portfolio/:id" element={<ProjectDetailPage />} />
-          <Route path="/solutions" element={<SolutionsPage />} />
+
+          <Route path="/certifications" element={<CertificationsPage />} />
           <Route path="/industries" element={<IndustriesPage />} />
           {/* CATCH-ALL ROUTE: Xử lý lỗi 404 */}
           <Route path="*" element={<NotFoundPage />} />
+
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/news" element={<NewsPage />} />
+
         </Routes>
       </div>
 
       <Footer />
+
+      <FloatingContact />
 
       {/* Modal 1: Form Tư vấn Kỹ thuật */}
       <ConsultationModal

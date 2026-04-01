@@ -8,6 +8,9 @@ import FeaturedProjects from '../components/FeaturedProjects'
 import CTASection from '../components/CTASection'
 import { getProjects } from '../services/api'
 
+import PartnerLogos from '../components/PartnerLogos'
+import Certifications from '../components/Certifications'
+
 export default function HomePage() {
     const [projectCount, setProjectCount] = useState(0);
 
@@ -27,9 +30,19 @@ export default function HomePage() {
         <>
             <HeroSection />
             <TrustSignals projectCount={projectCount} />
-            <ServicesSection />
+
+            {/* <ServicesSection /> */}
+
             <AboutSection />
+
+
+
+            <Certifications />
+
+            <PartnerLogos />
+
             <FeaturedProjects />
+
             <CTASection />
         </>
     )
