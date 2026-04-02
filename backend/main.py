@@ -6,7 +6,7 @@ from typing import List
 
 import models
 import schemas
-from database import engine, get_db, SessionLocal
+from database import engine, get_db
 
 
 models.Base.metadata.create_all(bind=engine)

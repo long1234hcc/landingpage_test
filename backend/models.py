@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text
 from database import Base
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import DateTime
 from sqlalchemy.sql import func
 
 class Project(Base):
