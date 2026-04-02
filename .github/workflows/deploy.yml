@@ -1,0 +1,83 @@
+name: CI/CD Pipeline HydroSys
+
+on:
+  push:
+    branches:
+      - main # Đã đổi từ master sang main theo yêu cầu của bạn
+
+jobs:
+  # ==========================================
+  # KHỐI 1: CONTINUOUS INTEGRATION (CI)
+  # ==========================================
+  ci-testing:
+    name: 🧪 Chạy Test & Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout mã nguồn
+        uses: actions/checkout@v4
+
+      # --- KIỂM TRA BACKEND (PYTHON với UV) ---
+      - name: Setup Python & uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          uv sync # Sử dụng uv.lock để cài đặt chính xác môi trường
+
+      - name: Linting Backend (Ruff)
+        run: |
+          cd backend
+          # Kiểm tra lỗi logic và định dạng code chuẩn PEP8
+          uv run ruff check . 
+
+      - name: Run Pytest
+        run: |
+          cd backend
+          # Chạy các bản test (nếu bạn đã viết file test_*.py)
+          uv run pytest 
+
+      # --- KIỂM TRA FRONTEND (VITE) ---
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 20
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build Test Frontend
+        run: |
+          cd frontend
+          # Bước này cực kỳ quan trọng: Nếu Vite build lỗi (do type, import...), CI sẽ fail ngay
+          npm run build 
+
+  # ==========================================
+  # KHỐI 2: CONTINUOUS DEPLOYMENT (CD)
+  # ==========================================
+  cd-deploy:
+    name: 🚀 Tự động Deploy lên VPS
+    needs: ci-testing # CHỈ chạy khi bước CI bên trên thành công 100%
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH vào VPS và cập nhật hệ thống
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            cd ~/landingpage_test
+            
+            # Kéo code mới nhất từ nhánh main
+            git pull origin main
+            
+            # Rebuild lại các dịch vụ (Backend, Frontend, DB)
+            docker compose up -d --build
+            
+            # Dọn dẹp các Image cũ để không đầy ổ cứng VPS
+            docker image prune -f
