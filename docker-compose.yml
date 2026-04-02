@@ -1,5 +1,5 @@
 services:
-  # 1. KHỐI DATABASE (Kéo trực tiếp bản nguyên gốc từ Docker Hub)
+  # 1. KHỐI DATABASE (Đã xóa rò rỉ port 5432)
   db:
     image: postgres:15-alpine
     container_name: landingpage_db
@@ -8,32 +8,38 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: secretpassword
       POSTGRES_DB: landingpage_db
-    ports:
-      - "5432:5432" 
     volumes:
-      - pgdata:/var/lib/postgresql/data # Lưu dữ liệu ra ổ cứng, tắt máy không mất
+      - pgdata:/var/lib/postgresql/data
 
-  # 2. KHỐI BACKEND (FastAPI)
+  # 2. KHỐI BACKEND (Đã xóa rò rỉ port 8000)
   backend:
-    build: ./backend # Trỏ vào thư mục backend để nó đọc file Dockerfile
+    build: ./backend
     container_name: landingpage_backend
     restart: always
-    ports:
-      - "8000:8000"
     environment:
-      # Bí mật mạng nội bộ: Thay chữ 'localhost' bằng tên service 'db'
       DATABASE_URL: postgresql://admin:secretpassword@db:5432/landingpage_db
     depends_on:
-      - db # Phải đợi thằng 'db' khởi động xong thì thằng 'backend' mới được chạy
+      - db
 
-  # 3. KHỐI FRONTEND (React + Nginx)
+  # 3. KHỐI FRONTEND (Đã xóa rò rỉ port 3000)
   frontend:
-    build: ./frontend # Trỏ vào thư mục frontend
+    build: ./frontend
     container_name: landingpage_frontend
     restart: always
-    ports:
-      - "3000:80" # Map port 3000 của máy tính vào port 80 của Nginx bên trong
     depends_on:
+      - backend
+
+  # 4. KHỐI BẢO VỆ NGINX (Chỉ mở duy nhất cổng 80 ra Internet)
+  nginx:
+    image: nginx:alpine
+    container_name: landingpage_proxy
+    restart: always
+    ports:
+      - "80:80" # Map cổng 80 của VPS vào cổng 80 của Nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf # Bơm file cấu hình vào
+    depends_on:
+      - frontend
       - backend
 
 volumes:
