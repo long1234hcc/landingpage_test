@@ -23,7 +23,7 @@ const enhanceProjectData = (project) => {
 export const getProjects = async () => {
     const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
     try {
-        const res = await fetch(`${API_URL}/api/projects`);
+        const res = await fetch(`${API_URL}/projects`);
         if (!res.ok) throw new Error(`HTTP error ${res.status}`);
         const data = await res.json();
 
