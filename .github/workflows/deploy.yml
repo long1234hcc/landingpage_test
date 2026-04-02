@@ -71,7 +71,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            cd ~/landingpage_test
+            cd ~/workspace/landingpage_test
             
             # Kéo code mới nhất từ nhánh main
             git pull origin main
