@@ -40,11 +40,10 @@ export const getProjects = async () => {
 export const getProjectById = async (id) => {
     const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
     try {
-        const res = await fetch(`${API_URL}/api/projects/${id}`);
+        // ✅ Bỏ /api đi, giống với getProjects
+        const res = await fetch(`${API_URL}/projects/${id}`);
         if (!res.ok) throw new Error(`HTTP error ${res.status}`);
         const data = await res.json();
-
-        // Gọi hàm làm sạch dữ liệu cho 1 object này
         return enhanceProjectData(data);
     } catch (error) {
         console.error("Lỗi khi fetch chi tiết dự án:", error);

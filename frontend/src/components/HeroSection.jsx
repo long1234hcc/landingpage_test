@@ -21,7 +21,7 @@ export default function HeroSection() {
                     </div>
 
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                        Kiến tạo Hạ tầng Nước <span className="text-engineering-green">Bền vững</span>.
+                        Kiến tạo Hạ tầng Nước <span className="text-engineering-green">Bền Vững</span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
