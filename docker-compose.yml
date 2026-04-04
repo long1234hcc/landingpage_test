@@ -31,16 +31,19 @@ services:
 
   # 4. KHỐI BẢO VỆ NGINX (Chỉ mở duy nhất cổng 80 ra Internet)
   nginx:
-    image: nginx:alpine
-    container_name: landingpage_proxy
-    restart: always
-    ports:
-      - "80:80" # Map cổng 80 của VPS vào cổng 80 của Nginx
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf # Bơm file cấu hình vào
-    depends_on:
-      - frontend
-      - backend
+      image: 'jc21/nginx-proxy-manager:latest'
+      container_name: landingpage_proxy
+      restart: always
+      ports:
+        - '80:80'   # Cổng HTTP
+        - '443:443' # Cổng HTTPS (Bắt buộc để chạy SSL)
+        - '81:81'   # Cổng quản lý Dashboard (Sau này xong thì đóng lại cho an toàn)
+      volumes:
+        - ./nginx/data:/data
+        - ./nginx/letsencrypt:/etc/letsencrypt
+      depends_on:
+        - frontend
+        - backend
 
 volumes:
   pgdata:
